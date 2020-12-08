@@ -1,2 +1,2 @@
-# hide-media-ext
+# Hide images/videos
 Hide images/videos extension
