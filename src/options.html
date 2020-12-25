@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Options</title>
+    <link href="material/material-components-web.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="mdc-form-field hide-images-ff">
+    <div class="mdc-checkbox hide-images-cb">
+        <input type="checkbox"
+                class="mdc-checkbox__native-control"
+                id="checkbox-1"/>
+        <div class="mdc-checkbox__background">
+        <svg class="mdc-checkbox__checkmark"
+                viewBox="0 0 24 24">
+            <path class="mdc-checkbox__checkmark-path"
+                fill="none"
+                d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+        </svg>
+        <div class="mdc-checkbox__mixedmark"></div>
+        </div>
+        <div class="mdc-checkbox__ripple"></div>
+    </div>
+    <label for="checkbox-1">Hide Images</label>
+</div>
+
+<div class="mdc-form-field hide-videos-ff">
+    <div class="mdc-checkbox hide-videos-cb">
+        <input type="checkbox"
+                class="mdc-checkbox__native-control"
+                id="checkbox-2"/>
+        <div class="mdc-checkbox__background">
+        <svg class="mdc-checkbox__checkmark"
+                viewBox="0 0 24 24">
+            <path class="mdc-checkbox__checkmark-path"
+                fill="none"
+                d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+        </svg>
+        <div class="mdc-checkbox__mixedmark"></div>
+        </div>
+        <div class="mdc-checkbox__ripple"></div>
+    </div>
+    <label for="checkbox-2">Hide Videos</label>
+</div>
+
+<div style="height:20px"></div>
+<button class="mdc-button sv-button">
+    <div class="mdc-button__ripple"></div>
+    <span class="mdc-button__label">Save</span>
+</button>
+
+<div class="notes" style="display: none;">
+    <div style="height:10px"></div>
+    <div style="font-size: 0.9em;">Saved. Refresh applicable tabs for changes to take effect</div>
+</div>
+
+<script src="material/material-components-web.min.js"></script>
+<script src="options.js"></script>
+</body>
+</html>

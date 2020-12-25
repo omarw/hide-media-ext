@@ -1,21 +1,53 @@
-var hideMedia = function () {
-    $("img,video,canvas,svg").remove();
-    $(".html5-video-player").remove();
-    $('[type="application/x-shockwave-flash"]').remove();
-    $("*")
-        .filter(function () {
-            if (this.currentStyle) { 
-                return this.currentStyle["backgroundImage"] !== "none";
-            }
-            else if (window.getComputedStyle) {
-                return document.defaultView.getComputedStyle(this, null).getPropertyValue("background-image") !== "none";
-            }
-        })
-        .each(function () {
-            this.style.setProperty("background-image", "none", "important");
-        });
-};
-hideMedia();
-setInterval(function () {
+
+var init = (hmOptions) => {
+    console.log('hmOptions is ' + JSON.stringify(hmOptions));
+    var hideImages = hmOptions.images;
+    var hideVidees = hmOptions.videos;
+
+    var hideMedia = function () {
+        if (hideImages) {
+            $('*')
+            .filter(function () {
+                if (this.currentStyle) { 
+                    return this.currentStyle['backgroundImage'] !== 'none';
+                }
+                else if (window.getComputedStyle) {
+                    return document.defaultView.getComputedStyle(this, null).getPropertyValue('background-image') !== 'none';
+                }
+            })
+            .each(function () {
+                this.style.setProperty('background-image', 'none', 'important');
+            });
+
+            $('img,canvas,svg').remove();
+            $('[type="application/x-shockwave-flash"]').remove();
+        }
+
+        if (hideVidees) {
+            $('video').remove();
+            $('.html5-video-player').remove();
+            $('[type="application/x-shockwave-flash"]').remove();
+        }
+    };
     hideMedia();
-}, 2000);
+    var interval = setInterval(function () {
+        hideMedia();
+    }, 2000);
+}
+
+chrome.storage.sync.get(['hmOptions'], (result) => {
+    var hmOptions;
+    
+    if (result.hmOptions) {
+        hmOptions = JSON.parse(result.hmOptions);
+    } else {
+        hmOptions = {
+            images: true,
+            videos: true
+        };
+        chrome.storage.sync.set({
+            hmOptions: JSON.stringify(hmOptions)
+        }, () => {});
+    }
+    init(hmOptions);
+});
