@@ -6,43 +6,25 @@
 </head>
 <body>
 
-<div class="mdc-form-field hide-images-ff">
-    <div class="mdc-checkbox hide-images-cb">
-        <input type="checkbox"
-                class="mdc-checkbox__native-control"
-                id="checkbox-1"/>
-        <div class="mdc-checkbox__background">
-        <svg class="mdc-checkbox__checkmark"
-                viewBox="0 0 24 24">
-            <path class="mdc-checkbox__checkmark-path"
-                fill="none"
-                d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
-        </svg>
-        <div class="mdc-checkbox__mixedmark"></div>
-        </div>
-        <div class="mdc-checkbox__ripple"></div>
+<div class="mdc-switch hide-images-s">
+    <div class="mdc-switch__track"></div>
+    <div class="mdc-switch__thumb-underlay">
+        <div class="mdc-switch__thumb"></div>
+        <input type="checkbox" id="checkbox-1" class="mdc-switch__native-control" role="switch">
     </div>
-    <label for="checkbox-1">Hide Images</label>
 </div>
+<label for="checkbox-1">Hide Images</label>
 
-<div class="mdc-form-field hide-videos-ff">
-    <div class="mdc-checkbox hide-videos-cb">
-        <input type="checkbox"
-                class="mdc-checkbox__native-control"
-                id="checkbox-2"/>
-        <div class="mdc-checkbox__background">
-        <svg class="mdc-checkbox__checkmark"
-                viewBox="0 0 24 24">
-            <path class="mdc-checkbox__checkmark-path"
-                fill="none"
-                d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
-        </svg>
-        <div class="mdc-checkbox__mixedmark"></div>
-        </div>
-        <div class="mdc-checkbox__ripple"></div>
+<div style="display: inline-block; width: 10px;"></div>
+
+<div class="mdc-switch hide-videos-s">
+    <div class="mdc-switch__track"></div>
+    <div class="mdc-switch__thumb-underlay">
+        <div class="mdc-switch__thumb"></div>
+        <input type="checkbox" id="checkbox-2" class="mdc-switch__native-control" role="switch">
     </div>
-    <label for="checkbox-2">Hide Videos</label>
 </div>
+<label for="checkbox-2">Hide Videos</label>
 
 <div style="height:20px"></div>
 <button class="mdc-button sv-button">

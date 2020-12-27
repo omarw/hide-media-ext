@@ -18,5 +18,5 @@
    "name": "Hide Images/Videos",
    "permissions": [ "activeTab", "storage" ],
    "short_name": "Hide Images",
-   "version": "2.0.0"
+   "version": "2.1.0"
 }

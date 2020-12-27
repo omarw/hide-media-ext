@@ -5,6 +5,9 @@ var init = (hmOptions) => {
     document.getElementById('checkbox-1').checked = hideImages;
     document.getElementById('checkbox-2').checked = hideVidees;
 
+    var switchControl1 = mdc.switchControl.MDCSwitch.attachTo(document.querySelector('.hide-images-s'));
+    var switchControl2 = mdc.switchControl.MDCSwitch.attachTo(document.querySelector('.hide-videos-s'));
+
     document.querySelector('.sv-button').addEventListener('click', () => {
         hmOptions = {
             images: document.getElementById('checkbox-1').checked,
@@ -39,9 +42,3 @@ chrome.storage.sync.get(['hmOptions'], (result) => {
 });
 
 mdc.ripple.MDCRipple.attachTo(document.querySelector('.sv-button'));
-
-var imagesCheckbox = mdc.checkbox.MDCCheckbox.attachTo(document.querySelector('.hide-images-cb'));
-var imagesFormField = mdc.formField.MDCFormField.attachTo(document.querySelector('.hide-images-ff'));
-imagesFormField.input = imagesCheckbox;
-
-
