@@ -1,15 +1,16 @@
-chrome.browserAction.onClicked.addListener(function(tab) {
+chrome.action.onClicked.addListener(function(tab) {
 	// No tabs or host permissions needed!
-	chrome.browserAction.setBadgeBackgroundColor({ color: [255, 255, 0, 255] });
-	chrome.browserAction.setBadgeText({text: "...",tabId: tab.id});
-	chrome.tabs.executeScript(null, { file: "jquery-3.5.1.min.js", allFrames:true }, function() {		
-		chrome.tabs.executeScript(null, { file: "contentscript.js", allFrames:true }, function(){
+	chrome.action.setBadgeBackgroundColor({ color: [255, 255, 0, 255] });
+	chrome.action.setBadgeText({text: "...",tabId: tab.id});
+
+	chrome.scripting.executeScript({ target: {tabId: tab.id, allFrames:true }, files: ["jquery-3.6.0.min.js"] }, function() {
+		chrome.scripting.executeScript({ target: {tabId: tab.id, allFrames:true }, files: ["content-script.js"] }, function(){
 			if (!chrome.runtime.lastError) {
-				chrome.browserAction.setBadgeBackgroundColor({ color: [0, 0, 0, 255] });
-				chrome.browserAction.setBadgeText({text: "_",tabId: tab.id});
+				chrome.action.setBadgeBackgroundColor({ color: [0, 0, 0, 255] });
+				chrome.action.setBadgeText({text: "_",tabId: tab.id});
 			}else{
-				chrome.browserAction.setBadgeBackgroundColor({ color: [255, 0, 0, 255] });
-				chrome.browserAction.setBadgeText({text: "x",tabId: tab.id});
+				chrome.action.setBadgeBackgroundColor({ color: [255, 0, 0, 255] });
+				chrome.action.setBadgeText({text: "x",tabId: tab.id});
 				console.log(chrome.runtime.lastError.message);
 			}
 		});
