@@ -1,5 +1,6 @@
 {
    "author": "Omar Wheatley",
+   "update_URL": "https://edge.microsoft.com/extensionwebstorebase/v1/crx",
    "background": {
       "service_worker": "myscript.js"
    },
