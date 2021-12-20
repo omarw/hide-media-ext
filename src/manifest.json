@@ -1,9 +1,9 @@
 {
    "author": "Omar Wheatley",
    "background": {
-      "scripts": [ "myscript.js" ]
+      "service_worker": "myscript.js"
    },
-   "browser_action": {
+   "action": {
       "default_icon": "icon.png"
    },
    "options_ui": {
@@ -14,9 +14,13 @@
    "icons": {
       "128": "icon.png"
    },
-   "manifest_version": 2,
+   "manifest_version": 3,
    "name": "Hide Images/Videos",
-   "permissions": [ "activeTab", "storage" ],
+   "permissions": [
+      "activeTab",
+      "storage",
+      "scripting"
+   ],
    "short_name": "Hide Images",
-   "version": "2.1.0"
+   "version": "3.0.0"
 }

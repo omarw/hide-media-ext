@@ -19,13 +19,20 @@ var init = (hmOptions) => {
                 this.style.setProperty('background-image', 'none', 'important');
             });
 
-            $('img,canvas,svg').remove();
+            $('picture,img,canvas,svg')
+            .each(function () {
+                $(this).parents('figure').remove();
+                $(this).remove();
+            });
             $('[type="application/x-shockwave-flash"]').remove();
         }
 
         if (hideVidees) {
-            $('video').remove();
-            $('.html5-video-player').remove();
+            $('video,.html5-video-player')
+            .each(function () {
+                $(this).parents('figure').remove();
+                $(this).remove();
+            });
             $('[type="application/x-shockwave-flash"]').remove();
         }
     };
